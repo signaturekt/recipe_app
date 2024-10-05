@@ -16,7 +16,7 @@ def get_catagories():
     if r.status_code == 200:
         json = r.json()
         for c in json['categories']:
-            category = Category(c['idCategory'], c['strCategory'], c['strCategoryDescr'])
+            category = Category(c['idCategory'], c['strCategory'], c['strCategoryDescription'])
             categories.append(category)            
     else:
         print("error")
