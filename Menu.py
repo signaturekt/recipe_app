@@ -17,10 +17,19 @@ def print_main_menu():
 def opt1():
     s = '-'*30
     print("{}\nList all categories\n{}".format(s,s))
-    # catagories = Request.get_categories()
     categories = Request.get_catagories()
     for category in categories:
         print(category)
+    print(s)
+
+def opt2():
+    s = '-'*30
+    print("{}\nList all meals by categories\n{}".format(s,s))
+    categories = Request.get_catagories()
+    for category in categories:
+        print(f"{category.get_name()}:")
+        for meal in Request.get_meal_by_category(category):
+            print(meal)
     print(s)
 
 def main_menu():
@@ -31,10 +40,9 @@ def main_menu():
             print("1")
             opt1()
         elif option == 2:
-            print("2 - List all Meals by Category")
+            opt2()
         else:
             break
-
 
 if __name__ == '__main__':
     sys.exit(main_menu())

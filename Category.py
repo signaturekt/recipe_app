@@ -6,3 +6,6 @@ class Category:
         
     def __str__(self):
         return f"{self.ID} - {self.name}"
+    
+    def get_name(self):
+        return f"{self.name}"
