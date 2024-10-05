@@ -1,11 +1,11 @@
 import requests, json
-import Category
+from Category import Category
 
 # API base URL
 BASE_URL = "https://www.themealdb.com/api/json/v1/1"
 
 
-def getCategories():
+def get_catagories():
     """
     Get all meal categories from themealdb
     """
@@ -14,14 +14,10 @@ def getCategories():
     categories = []
 
     if r.status_code == 200:
-        #[TODO]
-        print("200")
         json = r.json()
         for c in json['categories']:
-            #print(f'{c['idCategory']}', c['strCategory'], c['strCategoryDescription'])
-            category = Category.Category(c['idCategory'], c['strCategory'], c['strCategoryDescription'])
-            print(category)
+            category = Category(c['idCategory'], c['strCategory'], c['strCategoryDescr'])
+            categories.append(category)            
     else:
         print("error")
-
-getCategories()
+    return categories
