@@ -32,6 +32,15 @@ def opt2():
             print(meal)
     print(s)
 
+def opt3():
+    s = '-'*30
+    print("{}\nSearch meal by name\n{}".format(s,s))
+    while(True):
+        name = input("What meal would you like to search: ")
+        recipe = Request.get_meal_by_name(name)
+        if(recipe != None):
+            break
+    print(recipe)
 def main_menu():
     while(True):
         print_main_menu()
@@ -41,6 +50,8 @@ def main_menu():
             opt1()
         elif option == 2:
             opt2()
+        elif option == 3:
+            opt3()
         else:
             break
 

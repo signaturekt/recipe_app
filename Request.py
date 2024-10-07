@@ -54,16 +54,20 @@ def get_meal_by_name(name):
         i = 1
         ingredients = []
         measures = []
-        while m[0][f'strIngredient{i}'] != "":
-            ingredients.append(m[0][f'strIngredient{i}'])
-            measures.append(m[0][f'strMeasure{i}'])
-            i += 1
-        instructions = m[0]['strInstructions']
-        meal = m[0]['strMeal']
-        cateorgy = m[0]['strCategory']
-        id = m[0]['idMeal']
-        image_URL = m[0]['strMealThumb']
-        recipe = Recipe(id, meal, cateorgy, instructions, ingredients, measures, image_URL)
+        try:
+            while m[0][f'strIngredient{i}'] != "":
+                ingredients.append(m[0][f'strIngredient{i}'])
+                measures.append(m[0][f'strMeasure{i}'])
+                i += 1
+            instructions = m[0]['strInstructions']
+            meal = m[0]['strMeal']
+            cateorgy = m[0]['strCategory']
+            id = m[0]['idMeal']
+            image_URL = m[0]['strMealThumb']
+            recipe = Recipe(id, meal, cateorgy, instructions, ingredients, measures, image_URL)
+        except TypeError:
+            print("Meal is not found!")
+            return None
     else:
         print('an error has occured')
     return recipe
