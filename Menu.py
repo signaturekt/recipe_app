@@ -41,6 +41,21 @@ def opt3():
         if(recipe != None):
             break
     print(recipe)
+
+def opt4():
+    s = '-'*30
+    print("{}\nSearch a random meal\n{}".format(s,s))
+    recipe = Request.get_random_meal()
+    print(recipe)
+
+def opt5():
+    pass
+def opt6():
+    pass
+
+def opt7():
+    exit()
+
 def main_menu():
     while(True):
         print_main_menu()
@@ -52,6 +67,8 @@ def main_menu():
             opt2()
         elif option == 3:
             opt3()
+        elif option == 4:
+            opt4()
         else:
             break
 
