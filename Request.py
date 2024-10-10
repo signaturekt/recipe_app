@@ -8,7 +8,7 @@ from Recipe import Recipe
 BASE_URL = "https://www.themealdb.com/api/json/v1/1"
 
 
-def get_catagories():
+def get_categories():
     """
     Get all meal categories from themealdb
     """
@@ -93,10 +93,10 @@ def get_random_meal():
                 i += 1
             instructions = m[0]['strInstructions']
             meal = m[0]['strMeal']
-            cateorgy = m[0]['strCategory']
+            category = m[0]['strCategory']
             id = m[0]['idMeal']
             image_URL = m[0]['strMealThumb']
-            recipe = Recipe(id, meal, cateorgy, instructions, ingredients, measures, image_URL)
+            recipe = Recipe(id, meal, category, instructions, ingredients, measures, image_URL)
         except TypeError:
             print("Meal is not found!")
             return None

@@ -17,7 +17,7 @@ def print_main_menu():
 def opt1():
     s = '-'*30
     print("{}\nList all categories\n{}".format(s,s))
-    categories = Request.get_catagories()
+    categories = Request.get_categories()
     for category in categories:
         print(category)
     print(s)
@@ -25,7 +25,7 @@ def opt1():
 def opt2():
     s = '-'*30
     print("{}\nList all meals by categories\n{}".format(s,s))
-    categories = Request.get_catagories()
+    categories = Request.get_categories()
     for category in categories:
         print(f"{category.get_name()}:")
         for meal in Request.get_meal_by_category(category):
@@ -35,10 +35,10 @@ def opt2():
 def opt3():
     s = '-'*30
     print("{}\nSearch meal by name\n{}".format(s,s))
-    while(True):
+    while True:
         name = input("What meal would you like to search: ")
         recipe = Request.get_meal_by_name(name)
-        if(recipe != None):
+        if recipe is not None:
             break
     print(recipe)
 
@@ -57,7 +57,7 @@ def opt7():
     exit()
 
 def main_menu():
-    while(True):
+    while True:
         print_main_menu()
         option = int(input('Enter your choice: '))
         if option == 1:
